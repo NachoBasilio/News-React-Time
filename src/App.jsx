@@ -1,18 +1,40 @@
 import { useEffect, useState } from "react"
 import NewsCard from "./components/NewsCard"
 import { fetchApiNoticias } from './helpers/fetchApiNoticias'
+import useInterOb from "./hook/useInterOb"
+import './App.css'
 
 function App() {
   const [noticias, setNoticias] = useState([])
   const [tematica, setTematica] = useState("JavaScript")
-  const [cantidad, setCantidad] = useState(5)
+  const [cantidad, setCantidad] = useState(0)
+
+  const [observer, setElements, entries, isIntersecting] = useInterOb({
+    threshold: 0.75,
+    root: null,
+  })
+
+  useEffect(() => {
+    setElements([document.querySelector("#final")])
+  }, [setElements])
 
   useEffect(() => {
     fetchApiNoticias(tematica, cantidad, 1)
       .then((noticias) => {
-        setNoticias(noticias)
+        if (!(typeof(noticias) === "undefined") || !(noticias === null)) {
+          setNoticias(noticias)
+        }
+       
       })
+      document.querySelector("#final").classList.remove("isStart")
+
+    
+      
   }, [tematica, cantidad])
+
+  useEffect(() => {
+    setCantidad(cantidad + 1)
+  }, [isIntersecting])
 
   return (
     <>
@@ -28,7 +50,7 @@ function App() {
         }
       } />
       {
-        noticias.map((noticia) => {
+        noticias && noticias.map((noticia) => {
           return (
             <NewsCard
               key={noticia.url}
@@ -43,7 +65,7 @@ function App() {
         })
       }
 
-      <div></div>
+      <div className="isStart"  id="final"></div>
 
     </>
   )

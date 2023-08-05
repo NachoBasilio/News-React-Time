@@ -19,8 +19,8 @@ export default function NewsCard({titulo, autor, imagen, url, descripcion, fecha
 
 NewsCard.propTypes = {
     titulo: PropTypes.string.isRequired,
-    autor: PropTypes.string.isRequired,
-    imagen: PropTypes.string.isRequired,
+    autor: PropTypes.string,
+    imagen: PropTypes.string,
     url: PropTypes.string.isRequired,
     descripcion: PropTypes.string.isRequired,
     fecha: PropTypes.string.isRequired,
