@@ -1,7 +1,12 @@
 import { useEffect, useState } from "react"
+
 import NewsCard from "./components/NewsCard"
+import Header from "./components/Header"
+
 import { fetchApiNoticias } from './helpers/fetchApiNoticias'
+
 import useInterOb from "./hook/useInterOb"
+
 import './App.css'
 
 function App() {
@@ -38,17 +43,17 @@ function App() {
 
   return (
     <>
-      <h1>News Days</h1>
-      <p>En esta pagina vas a conseguir cositas lindas</p>
+      <Header />
       <input type="text" onChange={
         (event) => {
           event.preventDefault()
           if (event.target.value.length > 3){
             setTematica(event.target.value)
-          }
-          
+          }  
         }
       } />
+
+      
       <div className="contenedor">
       {
         noticias ? noticias.map((noticia) => {

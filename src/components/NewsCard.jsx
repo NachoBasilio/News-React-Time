@@ -47,7 +47,7 @@ export default function NewsCard({titulo, autor, imagen, url, descripcion, fecha
               {
                 fecha == null ? "No hay fecha" :
                 fecha.length > 9
-                ? fecha.slice(0, 10) + "..."
+                ? fecha.slice(0, 10) 
                 : fecha
               }
             </p>
