@@ -4,8 +4,8 @@
     flex-direction: column;
     width: 42%;;
     height: auto;
-    min-height: 350px;
-    margin: 40px;
+    min-height: 290px;
+    margin: 35px;
     background-color: #c6d4e1 ;
     
     border-radius: 10px;
@@ -21,11 +21,15 @@ h2{
 }
 
 .nombre{
-    display: block;
-    background-color: #e0e2da;
     font-size: 0.8rem;
-    color:#1a1919;
-    padding: 5px;
+    position: absolute;
+    bottom: 0;
+    left: 5px;
+    width: 50%;
+}
+
+.nombre p{
+    overflow: hidden;
 }
 
 a {
@@ -48,7 +52,6 @@ a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    
 }
 
 
@@ -61,7 +64,7 @@ a:hover {
 .des{
     font-size: 0.8rem;
     margin: 10px;
-    width: 50%;
+    width: 35%;
     height: 200px;
     padding: 5px;
     border-radius: 5px;
@@ -79,7 +82,7 @@ a:hover {
 }
 
 .contenedor-img img {
-    width: 50%;
+    width: 70%;
     height: 200px;
     object-fit: cover;
     border-radius: 10px;

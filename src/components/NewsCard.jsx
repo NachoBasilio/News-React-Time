@@ -9,7 +9,7 @@ export default function NewsCard({titulo, autor, imagen, url, descripcion, fecha
         <a href={url}>
             <h2>{titulo}</h2>
         </a>
-        <p className='nombre'>{autor || "No hay autor"}</p>
+        
         <div className='contenedor-img'>
       
       {urlRegex.test(imagen) ? (
@@ -20,6 +20,10 @@ export default function NewsCard({titulo, autor, imagen, url, descripcion, fecha
           
           <div className='des'>
             <p>{descripcion}</p>
+            <div className='nombre'>
+              <p >{autor || "No hay autor"}</p>
+            </div>
+
             <p className='fecha'>{fecha.slice(0, 10)}</p>
           </div>
           
