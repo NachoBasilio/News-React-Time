@@ -9,8 +9,7 @@
     height: 100px;
     padding: 10px;
     margin: 0 auto;
-    background-color: black;
-
+    
 }
 .isStart{
     display: none;
@@ -25,7 +24,7 @@
 }
 
 body{
-    background-color: #B0D7DE;
+    background-color: rgb(223, 223, 223);
     font-family: 'Roboto', sans-serif;
     
 }

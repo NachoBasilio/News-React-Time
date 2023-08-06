@@ -51,7 +51,7 @@ function App() {
       } />
       <div className="contenedor">
       {
-        noticias && noticias.map((noticia) => {
+        noticias ? noticias.map((noticia) => {
           return (
             <NewsCard
               key={noticia.url}
@@ -63,7 +63,7 @@ function App() {
               fecha={noticia.publishedAt}
             />
           )
-        })
+        }) : <p>Cargando...</p>
       }
       </div>
 
