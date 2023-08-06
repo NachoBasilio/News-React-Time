@@ -1,7 +1,32 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 #final{
-    width: 10px;
-    height: 10px;
+    width: 100px;
+    height: 100px;
+    padding: 10px;
+    margin: 0 auto;
+    background-color: black;
+
 }
 .isStart{
     display: none;
 }
+
+.contenedor{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+body{
+    background-color: #B0D7DE;
+    font-family: 'Roboto', sans-serif;
+    
+}
+

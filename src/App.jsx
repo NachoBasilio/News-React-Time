@@ -7,10 +7,10 @@ import './App.css'
 function App() {
   const [noticias, setNoticias] = useState([])
   const [tematica, setTematica] = useState("JavaScript")
-  const [cantidad, setCantidad] = useState(0)
+  const [cantidad, setCantidad] = useState(5)
 
   const [observer, setElements, entries, isIntersecting] = useInterOb({
-    threshold: 0.75,
+    threshold: 0.25,
     root: null,
   })
 
@@ -49,6 +49,7 @@ function App() {
           
         }
       } />
+      <div className="contenedor">
       {
         noticias && noticias.map((noticia) => {
           return (
@@ -64,6 +65,8 @@ function App() {
           )
         })
       }
+      </div>
+
 
       <div className="isStart"  id="final"></div>
 

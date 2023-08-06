@@ -1,19 +1,26 @@
 import PropTypes from 'prop-types';
+import "./NewsCard.css"
 
 export default function NewsCard({titulo, autor, imagen, url, descripcion, fecha}) {
 
   return (
-    <>
+    <div className='card'>
         <a href={url}>
             <h2>{titulo}</h2>
         </a>
-        <p>{autor}</p>
-        <img src={
-            imagen || "https://www.publicdomainpictures.net/pictures/280000/velka/not-found-image-15383864787lu.jpg"
-        } alt={titulo} />
-        <p>{descripcion}</p>
-        <p>{fecha}</p>
-    </>
+        <p className='nombre'>{autor}</p>
+        <div className='contenedor-img'>
+          <img src={
+              imagen || "https://www.publicdomainpictures.net/pictures/280000/velka/not-found-image-15383864787lu.jpg"
+          } alt={titulo} />
+          <div className='des'>
+            <p>{descripcion}</p>
+          </div>
+          
+        </div>
+
+        <p className='fecha'>{fecha}</p>
+    </div>
   )
 }
 

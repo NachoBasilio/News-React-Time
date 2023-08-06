@@ -7,7 +7,7 @@ export default function useInterOb(options){
 
     const observer = useRef(new IntersectionObserver((ObservedEntries)=>{
         if(ObservedEntries[0].isIntersecting){
-            setIsIntersecting(true)
+            setIsIntersecting(!isIntersecting)
             console.log("se ve")
         }else{
             setIsIntersecting(false)
