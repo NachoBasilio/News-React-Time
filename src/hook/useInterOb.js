@@ -31,9 +31,7 @@ export default function useInterOb(options){
     }, [elements])
 
     return [
-        observer.current,
         setElements,
-        entry,
         isIntersecting
     ]
 }

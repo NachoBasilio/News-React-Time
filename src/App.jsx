@@ -5,11 +5,11 @@ import useInterOb from "./hook/useInterOb"
 import './App.css'
 
 function App() {
-  const [noticias, setNoticias] = useState([])
+  const [noticias, setNoticias] = useState(null)
   const [tematica, setTematica] = useState("JavaScript")
   const [cantidad, setCantidad] = useState(5)
 
-  const [observer, setElements, entries, isIntersecting] = useInterOb({
+  const [ setElements, isIntersecting] = useInterOb({
     threshold: 0.25,
     root: null,
   })
