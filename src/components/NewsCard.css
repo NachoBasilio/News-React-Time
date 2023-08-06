@@ -26,10 +26,13 @@ h2{
     bottom: 0;
     left: 5px;
     width: 50%;
+    
 }
 
 .nombre p{
     overflow: hidden;
+    
+    
 }
 
 a {
@@ -38,11 +41,14 @@ a {
     border-radius: 10px 10px 0 0;
     height: 65px;
     background-color: #f0f2eb;
+   
 }
 
 a:hover {
     text-decoration: underline;
 }
+
+
 
 
 
@@ -62,23 +68,22 @@ a:hover {
 }
 
 .des{
-    font-size: 0.8rem;
+    font-size: 0.73rem;
     margin: 10px;
     width: 35%;
     height: 200px;
     padding: 5px;
     border-radius: 5px;
     background-color: #f0f2eb;
-    /* Borde */
     position: relative;
-    
-    overflow: scroll;
-    overflow-x: hidden;
+    overflow: hidden;
+   
 }
 
 .des p{
     text-align: left;
-    margin-left: 10px;
+    margin-left: 5px;
+    margin-top: 2px;
 }
 
 .contenedor-img img {

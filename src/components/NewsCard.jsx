@@ -19,7 +19,7 @@ export default function NewsCard({titulo, autor, imagen, url, descripcion, fecha
       )}
           
           <div className='des'>
-            <p>{descripcion}</p>
+            <p className='des-text'>{descripcion}</p>
             <div className='nombre'>
               <p >{autor || "No hay autor"}</p>
             </div>
