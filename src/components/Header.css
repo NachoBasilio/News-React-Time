@@ -15,3 +15,14 @@ header{
     margin-bottom: 40px;
 }
 
+ul{
+    display: flex;
+    list-style: none;
+}
+
+li{
+    margin-left: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
