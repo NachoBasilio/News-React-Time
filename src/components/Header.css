@@ -13,6 +13,8 @@ header{
     right: 0;
     transition: 0.5s;
     margin-bottom: 40px;
+    width: 70%;
+    margin: 0 auto;
 }
 
 ul{
