@@ -1,0 +1,24 @@
+.homepage-container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    margin: 68px auto;
+    padding: 40px;
+    background-color: #f4f4f4;
+    
+  }
+  
+  .titulo {
+    width: 50%;
+    margin: 0 auto;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+  }
+  
+  p {
+    font-size: 1.2rem;
+    color: #666;
+    text-align: left;
+  }
+  

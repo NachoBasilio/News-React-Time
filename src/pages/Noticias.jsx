@@ -7,7 +7,7 @@ import { fetchApiNoticias } from '../helpers/fetchApiNoticias'
 
 import useInterOb from "../hook/useInterOb"
 
-import './App.css'
+import './Noticias.css'
 
 
 function App() {
