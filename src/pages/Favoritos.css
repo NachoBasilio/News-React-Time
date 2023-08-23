@@ -1,0 +1,14 @@
+.contenedor-favorito{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: start;
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 150px;
+}
+
+.contenedor-favorito h1{
+    font-size: 40px;
+}

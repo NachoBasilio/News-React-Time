@@ -12,7 +12,7 @@ const noticiasSlice = createSlice({
         state.noticiasFavoritas.push(action.payload)
     },
     removeNoticiaFavorita(state, action) {
-        state.noticiasFavoritas = state.noticiasFavoritas.filter(noticia => noticia.id !== action.payload.id)
+        state.noticiasFavoritas = state.noticiasFavoritas.filter(noticia => noticia.titulo !== action.payload.titulo)
     }
   }
 });
