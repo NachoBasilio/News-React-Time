@@ -1,8 +1,35 @@
 import PropTypes from 'prop-types';
 import "./NewsCard.css"
+import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { addNoticiaFavorita, removeNoticiaFavorita } from '../store/noticias/noticiasSlice';
 
-export default function NewsCard({titulo, autor, imagen, url, descripcion, fecha}) {
+export default function NewsCard({titulo, autor, imagen, url, descripcion, fecha, isFavorite = false}) {
   const urlRegex = /^(ftp|http|https):\/\/[^ "]+$/;
+  const [isfavorite , setIsFavorite] = useState(isFavorite);
+  const dispach = useDispatch();
+  const noticias =useSelector(state => state.noticias.noticiasFavoritas)
+ 
+  const noticiaActual ={
+    titulo: titulo,
+    autor: autor,
+    imagen: imagen,
+    url: url,
+    descripcion: descripcion,
+    fecha: fecha
+  }
+
+
+  const handleFavorite = () => {
+    if(noticias.find(noticia => noticia.titulo === titulo)){
+      setIsFavorite(false);
+      dispach(removeNoticiaFavorita(noticiaActual))
+      return;
+    }
+    dispach(addNoticiaFavorita(noticiaActual))
+    setIsFavorite(!isfavorite);
+    console.log(noticias)
+  }
 
   return (
     <div className='card'>
@@ -30,9 +57,20 @@ export default function NewsCard({titulo, autor, imagen, url, descripcion, fecha
               : autor
             }
           </p>
-          <a href={url}>
-            ver mas
-          </a>
+          <div className='con-vmas-icono'> 
+            <a href={url} target="_blank">
+              ver mas
+            </a>
+            <div className='icono-corazon'
+              onClick={handleFavorite}
+            >
+            <svg width="512" height="512" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path fill={isfavorite ? "#b81414" : "#000000"} fillRule="evenodd" d="M4.222 5.364A6.002 6.002 0 0 1 12 4.758a6.002 6.002 0 0 1 7.778 9.091l-5.657 5.657a3 3 0 0 1-4.242 0L4.222 13.85a6 6 0 0 1 0-8.485Z" clipRule="evenodd"/>
+            </svg>
+
+            </div>  
+          </div>
+
         </div>
 
         <div className='contenedor-imagen'>
