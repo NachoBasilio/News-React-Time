@@ -12,3 +12,10 @@
 .contenedor-favorito h1{
     font-size: 40px;
 }
+
+.contendeor-de-noticias{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    
+}

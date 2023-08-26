@@ -2,7 +2,8 @@ import PropTypes from 'prop-types';
 import "./NewsCard.css"
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addNoticiaFavorita, removeNoticiaFavorita } from '../store/noticias/noticiasSlice';
+import { addNoticiaFavorita } from '../store/noticias/noticiasSlice';
+import { deletedNoticiaFavoritaStorage, startSaveLocalStorage } from '../store/noticias/thunks';
 
 export default function NewsCard({titulo, autor, imagen, url, descripcion, fecha, isFavorite = false}) {
   const urlRegex = /^(ftp|http|https):\/\/[^ "]+$/;
@@ -19,17 +20,20 @@ export default function NewsCard({titulo, autor, imagen, url, descripcion, fecha
     fecha: fecha
   }
 
+  
+
 
   const handleFavorite = () => {
     if(noticias.find(noticia => noticia.titulo === titulo)){
       setIsFavorite(false);
-      dispach(removeNoticiaFavorita(noticiaActual))
+      dispach(deletedNoticiaFavoritaStorage(noticiaActual))
       return;
     }
+    
     dispach(addNoticiaFavorita(noticiaActual))
+    dispach(startSaveLocalStorage())
     setIsFavorite(!isfavorite);
-    console.log(noticias)
-  }
+    }
 
   return (
     <div className='card'>
