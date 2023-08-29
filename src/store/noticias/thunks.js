@@ -3,6 +3,7 @@ import { addNoticiaFavorita, removeNoticiaFavorita } from "./noticiasSlice";
 export const startSaveLocalStorage = () => {
     return (dispatch, getState) => {
         const { noticias } = getState();
+        console.log(noticias)
         localStorage.setItem('noticiasFavoritas', JSON.stringify(noticias.noticiasFavoritas));
     }
 }

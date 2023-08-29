@@ -8,15 +8,24 @@ import { fetchApiNoticias } from '../helpers/fetchApiNoticias'
 import useInterOb from "../hook/useInterOb"
 
 import './Noticias.css'
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
+import { addNoticiaFavorita } from "../store/noticias/noticiasSlice"
 
 
 function App() {
   const [noticiasState, setNoticiasState] = useState(null)
   const [tematica, setTematica] = useState("JavaScript")
   const [cantidad, setCantidad] = useState(5)
-  const { noticias } = useSelector(state => state.noticias)
-  console.log(noticias)
+  const dispatch = useDispatch();
+  const noticiasStorage =  JSON.parse(localStorage.getItem("noticiasFavoritas")) 
+
+  useEffect(() => {
+    if (noticiasStorage.length > 0) {
+      noticiasStorage.forEach(noticia => {
+        dispatch(addNoticiaFavorita(noticia));
+      });
+    }
+  }, []);
  
 
   const [ setElements, isIntersecting] = useInterOb({
@@ -71,7 +80,7 @@ function App() {
               url={noticia.url}
               descripcion={noticia.description}
               fecha={noticia.publishedAt}
-              //isFavorite={}
+              isFavorite={noticiasStorage ? noticiasStorage.some((noticiaStorage) => noticiaStorage.url === noticia.url) : false}
             />
           )
         }) : <p>Cargando...</p>
