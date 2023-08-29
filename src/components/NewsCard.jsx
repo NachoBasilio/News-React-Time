@@ -24,6 +24,7 @@ export default function NewsCard({titulo, autor, imagen, url, descripcion, fecha
 
 
   const handleFavorite = () => {
+    
     if(noticias.find(noticia => noticia.titulo === titulo)){
       setIsFavorite(false);
       dispach(deletedNoticiaFavoritaStorage(noticiaActual))
