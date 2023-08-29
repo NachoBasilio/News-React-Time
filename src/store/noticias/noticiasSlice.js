@@ -9,6 +9,9 @@ const noticiasSlice = createSlice({
   initialState,
   reducers: {
     addNoticiaFavorita(state, action) {
+        if(state.noticiasFavoritas.find(noticia => noticia.titulo === action.payload.titulo)) {
+            return
+        }
         state.noticiasFavoritas.push(action.payload)
     },
     removeNoticiaFavorita(state, action) {

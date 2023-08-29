@@ -5,15 +5,17 @@ import NewsCard from '../components/NewsCard';
 import { addNoticiaFavorita } from '../store/noticias/noticiasSlice';
 
 export default function Favoritos() {
-  const [noticias, setNoticias] = React.useState([]);
+  const dispatch = useDispatch();
   const noticiasSele = useSelector(state => state.noticias.noticiasFavoritas);
+  const noticiasYaGuardadas = JSON.parse(localStorage.getItem("noticiasFavoritas")) || [];
 
   useEffect(() => {
-    const storedNoticias = JSON.parse(localStorage.getItem('noticiasFavoritas')) || [];
-    setNoticias(storedNoticias);
-  }, [noticiasSele]);
-
-
+    if (noticiasYaGuardadas.length > 0) {
+      noticiasYaGuardadas.forEach(noticia => {
+        dispatch(addNoticiaFavorita(noticia));
+      });
+    }
+  }, []);
   
 
   return (
@@ -21,10 +23,10 @@ export default function Favoritos() {
       <div className="contenedor-favorito">
         <h1>Favoritos:</h1>
         <div className='contendeor-de-noticias'>
-          {noticias.length === 0 ? (
+          {noticiasSele.length === 0 ? (
             <h2>No hay noticias favoritas</h2>
           ) : (
-            noticias.map(noticia => (
+            noticiasSele.map(noticia => (
               <NewsCard
                 key={noticia.titulo}
                 titulo={noticia.titulo}

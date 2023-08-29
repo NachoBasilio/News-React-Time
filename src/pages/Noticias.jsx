@@ -8,12 +8,16 @@ import { fetchApiNoticias } from '../helpers/fetchApiNoticias'
 import useInterOb from "../hook/useInterOb"
 
 import './Noticias.css'
+import { useSelector } from "react-redux"
 
 
 function App() {
-  const [noticias, setNoticias] = useState(null)
+  const [noticiasState, setNoticiasState] = useState(null)
   const [tematica, setTematica] = useState("JavaScript")
   const [cantidad, setCantidad] = useState(5)
+  const { noticias } = useSelector(state => state.noticias)
+  console.log(noticias)
+ 
 
   const [ setElements, isIntersecting] = useInterOb({
     threshold: 0.25,
@@ -26,9 +30,9 @@ function App() {
 
   useEffect(() => {
     fetchApiNoticias(tematica, cantidad, 1)
-      .then((noticias) => {
-        if (!(typeof(noticias) === "undefined") || !(noticias === null)) {
-          setNoticias(noticias)
+      .then((noticiasState) => {
+        if (!(typeof(noticiasState) === "undefined") || !(noticiasState === null)) {
+          setNoticiasState(noticiasState)
         }
        
       })
@@ -57,7 +61,7 @@ function App() {
       
       <div className="contenedor">
       {
-        noticias ? noticias.map((noticia) => {
+        noticiasState ? noticiasState.map((noticia) => {
           return (
             <NewsCard
               key={noticia.url}
@@ -67,6 +71,7 @@ function App() {
               url={noticia.url}
               descripcion={noticia.description}
               fecha={noticia.publishedAt}
+              //isFavorite={}
             />
           )
         }) : <p>Cargando...</p>
