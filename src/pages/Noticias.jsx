@@ -17,9 +17,10 @@ function App() {
   const [tematica, setTematica] = useState("JavaScript")
   const [cantidad, setCantidad] = useState(5)
   const dispatch = useDispatch();
-  const noticiasStorage =  JSON.parse(localStorage.getItem("noticiasFavoritas")) 
+  const noticiasStorage =  JSON.parse(localStorage.getItem("noticiasFavoritas")) || []
 
   useEffect(() => {
+
     if (noticiasStorage.length > 0) {
       noticiasStorage.forEach(noticia => {
         dispatch(addNoticiaFavorita(noticia));
@@ -39,9 +40,11 @@ function App() {
 
   useEffect(() => {
     fetchApiNoticias(tematica, cantidad, 1)
-      .then((noticiasState) => {
-        if (!(typeof(noticiasState) === "undefined") || !(noticiasState === null)) {
-          setNoticiasState(noticiasState)
+      .then((noticia) => {
+        if (!(typeof(noticia) === "undefined") || !(noticia === null)) {
+          setNoticiasState(noticia)
+          console.log(noticia)
+          console.log(noticiasState)
         }
        
       })
@@ -71,6 +74,8 @@ function App() {
       <div className="contenedor">
       {
         noticiasState ? noticiasState.map((noticia) => {
+          if(!noticia.title) return null
+
           return (
             <NewsCard
               key={noticia.url}
