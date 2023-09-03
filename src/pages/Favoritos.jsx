@@ -22,13 +22,14 @@ export default function Favoritos() {
   return (
     <>
       <div className="contenedor-favorito">
-        <h1>Favoritos:</h1>
+        <h1>Favoritos</h1>
         <div className='contendeor-de-noticias'>
           {noticiasSele.length === 0 ? (
             <h2>No hay noticias favoritas</h2>
           ) : (
             noticiasSele.map(noticia => (
               <NewsCard
+              
                 key={noticia.titulo}
                 titulo={noticia.titulo}
                 autor={noticia.autor}

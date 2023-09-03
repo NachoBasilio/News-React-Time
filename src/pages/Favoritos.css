@@ -11,11 +11,19 @@
 
 .contenedor-favorito h1{
     font-size: 40px;
+    margin: 0 auto;
 }
 
 .contendeor-de-noticias{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
     
+}
+
+.contendeor-de-noticias .card{
+    width: 100%;
 }

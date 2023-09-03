@@ -1,4 +1,4 @@
-header{
+header {
     background-color: white;
     height: 80px;
     display: flex;
@@ -12,19 +12,70 @@ header{
     left: 0;
     right: 0;
     transition: 0.5s;
-    margin-bottom: 40px;
-    width: 70%;
-    margin: 0 auto;
-}
-
-ul{
+  }
+  
+  ul {
     display: flex;
     list-style: none;
-}
-
-li{
+    margin: 0;
+    padding: 0;
+  }
+  
+  li {
     margin-left: 20px;
     font-size: 20px;
     font-weight: bold;
     cursor: pointer;
-}
+  }
+  
+  /* Estilos para el menú de hamburguesa */
+  .menu-icon {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+  }
+  
+  .menu-icon.open .bar:nth-child(1) {
+    transform: translateY(5px) rotate(45deg);
+  }
+  
+  .menu-icon.open .bar:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .menu-icon.open .bar:nth-child(3) {
+    transform: translateY(-5px) rotate(-45deg);
+  }
+  
+  /* Media Query para pantallas más pequeñas */
+  @media screen and (max-width: 768px) {
+    header {
+      padding: 10px;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    ul {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    li {
+      margin-left: 0;
+      margin-bottom: 10px;
+      font-size: 16px;
+    }
+  
+    .menu-icon {
+      display: flex;
+    }
+  
+    .nav {
+      display: none;
+      width: 100%;
+    }
+  
+    .nav.open {
+      display: block;
+    }
+  }
