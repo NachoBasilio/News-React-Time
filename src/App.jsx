@@ -7,6 +7,8 @@ import Favoritos from './pages/Favoritos'
 
 
 export default function App() {
+  
+
   return (
     <>
         <Header></Header>

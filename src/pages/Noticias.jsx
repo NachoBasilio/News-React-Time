@@ -10,6 +10,7 @@ import useInterOb from "../hook/useInterOb"
 import './Noticias.css'
 import { useDispatch, useSelector } from "react-redux"
 import { addNoticiaFavorita } from "../store/noticias/noticiasSlice"
+import { localStorageGet } from "../helpers/localStorageGet"
 
 
 function App() {
@@ -17,7 +18,7 @@ function App() {
   const [tematica, setTematica] = useState("JavaScript")
   const [cantidad, setCantidad] = useState(5)
   const dispatch = useDispatch();
-  const noticiasStorage =  JSON.parse(localStorage.getItem("noticiasFavoritas")) || []
+  const noticiasStorage =  localStorageGet("noticiasFavoritas");
 
   useEffect(() => {
 

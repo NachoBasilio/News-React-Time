@@ -3,11 +3,12 @@ import "./Favoritos.css";
 import { useDispatch, useSelector } from 'react-redux';
 import NewsCard from '../components/NewsCard';
 import { addNoticiaFavorita } from '../store/noticias/noticiasSlice';
+import { localStorageGet } from '../helpers/localStorageGet';
 
 export default function Favoritos() {
   const dispatch = useDispatch();
   const noticiasSele = useSelector(state => state.noticias.noticiasFavoritas);
-  const noticiasYaGuardadas = JSON.parse(localStorage.getItem("noticiasFavoritas")) || [];
+  const noticiasYaGuardadas = localStorageGet("noticiasFavoritas");
 
   useEffect(() => {
     if (noticiasYaGuardadas.length > 0) {

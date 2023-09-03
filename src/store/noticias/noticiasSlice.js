@@ -1,7 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-    noticiasFavoritas: []
+    noticiasFavoritas: [],
+    noticiasEnElStorage: []
 }
 
 const noticiasSlice = createSlice({
@@ -16,13 +17,17 @@ const noticiasSlice = createSlice({
     },
     removeNoticiaFavorita(state, action) {
         state.noticiasFavoritas = state.noticiasFavoritas.filter(noticia => noticia.titulo !== action.payload.titulo)
+    },
+    setNoticiasEnElStorage(state, action) {
+        state.noticiasEnElStorage = action.payload
     }
   }
 });
 
 export const {
     addNoticiaFavorita,
-    removeNoticiaFavorita
+    removeNoticiaFavorita,
+    setNoticiasEnElStorage
 } = noticiasSlice.actions
 
 export default noticiasSlice.reducer
